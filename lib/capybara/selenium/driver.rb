@@ -53,7 +53,6 @@ class Capybara::Selenium::Driver < Capybara::Driver::Base
 
   def resynchronize
     if options[:resynchronize]
-      load_wait_for_ajax_support
       yield
       Capybara.timeout(options[:resynchronization_timeout], self, "failed to resynchronize, ajax request timed out") do
         evaluate_script("!window.capybaraRequestsOutstanding")
